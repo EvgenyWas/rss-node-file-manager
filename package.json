@@ -1,0 +1,23 @@
+{
+  "name": "rss-node-file-manager",
+  "version": "1.0.0",
+  "description": "File Manager with NodeJS APIs within the rolling scopes school's course for the assignment https://github.com/AlreadyBored/nodejs-assignments/tree/main/assignments/file-manager",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvgenyWas/rss-node-file-manager.git"
+  },
+  "author": "Yauheni Vasiukevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvgenyWas/rss-node-file-manager/issues"
+  },
+  "homepage": "https://github.com/EvgenyWas/rss-node-file-manager#readme"
+}
