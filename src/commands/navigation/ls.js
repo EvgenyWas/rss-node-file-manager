@@ -20,9 +20,8 @@ export default async function ls({ state }) {
   try {
     const list = await fs.readdir(state.workdir);
     const stats = await Promise.all(
-      list.map((item) => fs.lstat(path.resolve(state.workdir, item)))
+      list.map((item) => fs.stat(path.resolve(state.workdir, item)))
     );
-    // TODO: sorted in alphabetical order
     console.table(
       stats
         .map((item, idx) => ({ Name: list[idx], Type: identify(item) }))

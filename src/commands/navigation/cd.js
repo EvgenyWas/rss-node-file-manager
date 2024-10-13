@@ -10,14 +10,14 @@ export default async function cd({ state, args }) {
   }
 
   const nextWorkdir = path.resolve(state.workdir, nextPath);
-  let lstat;
+  let stat;
   try {
-    lstat = await fs.lstat(nextWorkdir);
+    stat = await fs.stat(nextWorkdir);
   } catch (error) {
     throw createInputError("the path doesn't exist");
   }
 
-  if (!lstat.isDirectory()) {
+  if (!stat.isDirectory()) {
     throw createInputError("the path is not a directory");
   }
 

@@ -16,7 +16,7 @@ export default async function rm({ state, args }) {
   }
 
   try {
-    await fs.rm(targetPath);
+    await fs.rm(targetPath, { recursive: true });
   } catch (error) {
     throw createOperationError();
   }

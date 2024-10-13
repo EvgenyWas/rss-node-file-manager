@@ -5,10 +5,10 @@ import zlib from "node:zlib";
 
 import { createInputError, createOperationError } from "../../utils/index.js";
 
-export default async function decompress({ args }) {
+export default async function decompress({ state, args }) {
   const [from = "", to = ""] = args;
   if (!from || !to) {
-    throw createInputError();
+    throw createInputError("the source and destination paths are required");
   }
 
   const archivePath = path.resolve(state.workdir, from);

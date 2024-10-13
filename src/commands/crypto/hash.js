@@ -6,20 +6,20 @@ import stream from "node:stream/promises";
 import { createInputError, createOperationError } from "../../utils/index.js";
 
 export default async function hash({ state, args }) {
-  const [userPath] = args;
-  if (!userPath) {
-    throw createInputError();
+  const [src] = args;
+  if (!src) {
+    throw createInputError("the path to a file is required");
   }
 
-  const targetPath = path.resolve(state.workdir, userPath);
-  let lstat;
+  const targetPath = path.resolve(state.workdir, src);
+  let stat;
   try {
-    lstat = await fs.promises.lstat(targetPath);
+    stat = await fs.promises.stat(targetPath);
   } catch (error) {
     throw createInputError("the file path is not correct");
   }
 
-  if (!lstat.isFile()) {
+  if (!stat.isFile()) {
     throw createInputError("the path is not a file");
   }
 

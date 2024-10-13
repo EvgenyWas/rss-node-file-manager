@@ -8,7 +8,7 @@ import { createInputError, createOperationError } from "../../utils/index.js";
 export default async function compress({ state, args }) {
   const [from = "", to = ""] = args;
   if (!from || !to) {
-    throw createInputError();
+    throw createInputError("the source and destination paths are required");
   }
 
   const filePath = path.resolve(state.workdir, from);
